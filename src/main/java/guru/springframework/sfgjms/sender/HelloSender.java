@@ -3,7 +3,7 @@ package guru.springframework.sfgjms.sender;
 import java.util.UUID;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import guru.springframework.sfgjms.config.JmsConfig2;
+import guru.springframework.sfgjms.config.JmsConfig;
 import guru.springframework.sfgjms.model.HelloWorldMessage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jms.core.JmsTemplate;
@@ -26,7 +26,7 @@ public class HelloSender
         .message("Hello world!")
         .build();
 
-    jmsTemplate.convertAndSend(JmsConfig2.MY_QUEUE, "Mensaje a enviar");
+    jmsTemplate.convertAndSend(JmsConfig.MY_QUEUE, message);
   }
 /*
   @Scheduled(fixedRate = 2000)

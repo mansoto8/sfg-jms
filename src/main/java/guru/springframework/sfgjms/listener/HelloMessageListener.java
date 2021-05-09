@@ -1,6 +1,7 @@
 package guru.springframework.sfgjms.listener;
 
-import guru.springframework.sfgjms.config.JmsConfig2;
+import guru.springframework.sfgjms.config.JmsConfig;
+import guru.springframework.sfgjms.model.HelloWorldMessage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.jms.core.JmsTemplate;
@@ -12,18 +13,17 @@ public class HelloMessageListener
 {
   private final JmsTemplate jmsTemplate;
 
+  /*
   @JmsListener(destination = JmsConfig2.MY_QUEUE)
   public void listen(String message) {
     System.out.println("I got a message!");
 
     System.out.println(message);
   }
+*/
 
-  /*
-  @JmsListener(destination = JmsConfig.MY_QUEUE)
-  public void listen(@Payload HelloWorldMessage helloWorldMessage,
-                     @Headers MessageHeaders headers,
-                     Message message) {
+  @JmsListener(destination = JmsConfig.MY_QUEUE, containerFactory = "myFactory")
+  public void listen(HelloWorldMessage helloWorldMessage) {
     System.out.println("I got a message!");
 
     System.out.println(helloWorldMessage);
