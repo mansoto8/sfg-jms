@@ -6,12 +6,13 @@ import org.springframework.jms.support.converter.MappingJackson2MessageConverter
 import org.springframework.jms.support.converter.MessageConverter;
 import org.springframework.jms.support.converter.MessageType;
 
-@Configuration
-public class JmsConfig
+//@Configuration
+public class JmsConfig2
 {
   public static final String MY_QUEUE = "my-hello-world";
   public static final String MY_SEND_RECEIVE_QUEUE = "replyBackToMe";
 
+  /*
   @Bean
   public MessageConverter messageConverter() {
     MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
@@ -20,4 +21,5 @@ public class JmsConfig
 
     return converter;
   }
+  */
 }
