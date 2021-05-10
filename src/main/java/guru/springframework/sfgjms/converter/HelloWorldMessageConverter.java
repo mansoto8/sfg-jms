@@ -29,7 +29,7 @@ public class HelloWorldMessageConverter
     String payload = null;
     try {
       payload = mapper.writeValueAsString(tempMessage);
-      log.info("outbound json='{}'", payload);
+      log.debug("outbound json='{}'", payload);
     }
     catch (JsonProcessingException e) {
       log.error("error converting form tempMessage", e);
@@ -45,7 +45,7 @@ public class HelloWorldMessageConverter
   public Object fromMessage(Message message) throws JMSException {
     TextMessage textMessage = (TextMessage) message;
     String payload = textMessage.getText();
-    log.info("inbound json='{}'", payload);
+    log.debug("inbound json='{}'", payload);
 
     HelloWorldMessage tempMessage = null;
     try {
